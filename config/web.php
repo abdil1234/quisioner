@@ -17,6 +17,9 @@ $config = [
         'mimin' => [
             'class' => '\hscstudio\mimin\Module',
         ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module'
+        ]  
     ],
     'components' => [
         'request' => [
@@ -70,7 +73,7 @@ $config = [
             'site/login',
             'site/logout',
             // 'debug/*',
-            // 'mimin/*', // only in dev mode
+            'mimin/*', // only in dev mode
     ],
    ],
 ];
