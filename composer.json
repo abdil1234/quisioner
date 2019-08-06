@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "hscstudio/yii2-mimin": "~1.1.5",
         "dmstr/yii2-adminlte-asset": "^2.1",
-        "johnitvn/yii2-ajaxcrud": "*"
+        "johnitvn/yii2-ajaxcrud": "*",
+        "mdmsoft/yii2-upload-file": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

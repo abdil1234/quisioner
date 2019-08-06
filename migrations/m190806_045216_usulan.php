@@ -26,6 +26,8 @@ class m190806_045216_usulan extends Migration
             'alamat' => $this->text(),
             'kritik' => $this->text(),
             'saran' => $this->text(),
+            'waktu' => $this->date(),
+            'file_id' => $this->integer(),
         ], $tableOptions);
     }
 

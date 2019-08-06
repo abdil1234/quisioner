@@ -31,6 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu Aplikasi', 'options' => ['class' => 'header']],
+                    ['label' => 'Dashboard', 'icon' => 'file-code-o', 'url' => ['/site']],
                     ['label' => 'Usulan', 'icon' => 'file-code-o', 'url' => ['/usulan']],
                 ],
             ]
