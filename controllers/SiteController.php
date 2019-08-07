@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Usulan;
 
 class SiteController extends Controller
 {
@@ -61,8 +62,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        
-        return $this->render('index');
+        $lingkungan1 = Usulan::find()->where(['kd_lingkungan' => 1])->count();
+        $lingkungan2 = Usulan::find()->where(['kd_lingkungan' => 2])->count();
+        $lingkungan3 = Usulan::find()->where(['kd_lingkungan' => 3])->count();
+        $lingkungan4 = Usulan::find()->where(['kd_lingkungan' => 4])->count();
+        $lingkungan5 = Usulan::find()->where(['kd_lingkungan' => 5])->count();
+
+        return $this->render('index', [
+            'lingkungan1' => $lingkungan1,
+            'lingkungan2' => $lingkungan2,
+            'lingkungan3' => $lingkungan3,
+            'lingkungan4' => $lingkungan4,
+            'lingkungan5' => $lingkungan5
+        ]);
     }
 
     /**

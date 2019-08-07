@@ -4,12 +4,14 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Usulan;
+use app\models\RefLingkungan;
 use app\models\UsulanSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 
 /**
  * UsulanController implements the CRUD actions for Usulan model.
@@ -40,10 +42,12 @@ class UsulanController extends Controller
     {    
         $searchModel = new UsulanSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $lingkungan = ArrayHelper::map(RefLingkungan::find()->all(), 'id', 'lingkungan');
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'lingkungan' => $lingkungan,
         ]);
     }
 
@@ -84,6 +88,7 @@ class UsulanController extends Controller
         $request = Yii::$app->request;
         $model = new Usulan();  
         $model->waktu = date('Y-m-d');
+        $lingkungan = ArrayHelper::map(RefLingkungan::find()->all(), 'id', 'lingkungan');
 
         if($request->isAjax){
             /*
@@ -95,6 +100,7 @@ class UsulanController extends Controller
                     'title'=> "Tambah Usulan",
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
+                        'lingkungan' => $lingkungan
                     ]),
                     'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Simpan',['class'=>'btn btn-primary','type'=>"submit"])
@@ -105,8 +111,7 @@ class UsulanController extends Controller
                     'forceReload'=>'#crud-datatable-pjax',
                     'title'=> "Tambah Usulan",
                     'content'=>'<span class="text-success">Create Usulan success</span>',
-                    'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
-                            Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
+                    'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"])
         
                 ];         
             }else{           
@@ -114,6 +119,7 @@ class UsulanController extends Controller
                     'title'=> "Tambah Usulan",
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
+                        'lingkungan' => $lingkungan
                     ]),
                     'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Simpan',['class'=>'btn btn-primary','type'=>"submit"])
@@ -129,6 +135,7 @@ class UsulanController extends Controller
             } else {
                 return $this->render('create', [
                     'model' => $model,
+                    'lingkungan' => $lingkungan
                 ]);
             }
         }
@@ -146,6 +153,7 @@ class UsulanController extends Controller
     {
         $request = Yii::$app->request;
         $model = $this->findModel($id);       
+        $lingkungan = ArrayHelper::map(RefLingkungan::find()->all(), 'id', 'lingkungan');
 
         if($request->isAjax){
             /*
@@ -157,6 +165,7 @@ class UsulanController extends Controller
                     'title'=> "Ubah Usulan",
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
+                        'lingkungan' => $lingkungan
                     ]),
                     'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Simpan',['class'=>'btn btn-primary','type'=>"submit"])
@@ -167,6 +176,7 @@ class UsulanController extends Controller
                     'title'=> "Usulan",
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
+                        'lingkungan' => $lingkungan
                     ]),
                     'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                             Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
@@ -176,6 +186,7 @@ class UsulanController extends Controller
                     'title'=> "Ubah Usulan",
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
+                        'lingkungan' => $lingkungan
                     ]),
                     'footer'=> Html::button('Tutup',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::button('Simpan',['class'=>'btn btn-primary','type'=>"submit"])
@@ -190,6 +201,7 @@ class UsulanController extends Controller
             } else {
                 return $this->render('update', [
                     'model' => $model,
+                    'lingkungan' => $lingkungan
                 ]);
             }
         }

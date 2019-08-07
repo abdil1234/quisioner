@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m190806_045216_usulan
+ * Class m190807_031911_ref_lingkungan
  */
-class m190806_045216_usulan extends Migration
+class m190807_031911_ref_lingkungan extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,23 +18,20 @@ class m190806_045216_usulan extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%usulan}}', [
+        $this->createTable('{{%ref_lingkungan}}', [
             'id' => $this->primaryKey(),
-            'nama' => $this->string(30)->notNull(),
-            'jenis_kelamin' => $this->string(10),
-            'tgl_lahir' => $this->date(),
-            'alamat' => $this->text(),
-            'kritik' => $this->text(),
-            'saran' => $this->text(),
-            'waktu' => $this->date(),
-            'kd_lingkungan' => $this->tinyInteger(),
-            'file_id' => $this->integer(),
+            'lingkungan' => $this->string(30)->notNull()
         ], $tableOptions);
     }
 
-    public function down()
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
     {
-        $this->dropTable('{{%usulan}}');
+        echo "m190807_031911_ref_lingkungan cannot be reverted.\n";
+
+        return false;
     }
 
     /*
@@ -46,7 +43,7 @@ class m190806_045216_usulan extends Migration
 
     public function down()
     {
-        echo "m190806_045216_usulan cannot be reverted.\n";
+        echo "m190807_031911_ref_lingkungan cannot be reverted.\n";
 
         return false;
     }

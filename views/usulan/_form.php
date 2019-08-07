@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
+use kartik\widgets\FileInput;
 /* @var $this yii\web\View */
 /* @var $model app\models\Usulan */
 /* @var $form yii\widgets\ActiveForm */
@@ -32,12 +33,17 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'saran')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'file_id')->textInput() ?>
+    <?= $form->field($model, 'kd_lingkungan')->dropDownList($lingkungan, ['prompt' => '- Pilih Lingkungan -'])->label('Lingkungan') ?>
+
+    <?= $form->field($model, 'file')->widget(FileInput::classname(), [
+        'options' => ['accept' => '*'],
+    ]); ?>
 
   
 	<?php if (!Yii::$app->request->isAjax){ ?>
 	  	<div class="form-group">
 	        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+
 	    </div>
 	<?php } ?>
 

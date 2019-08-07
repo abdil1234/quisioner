@@ -72,6 +72,9 @@ $config = [
            // add wildcard allowed action here!
             'site/login',
             'site/logout',
+            'file/*',
+            'gridview/*',
+            'laporan/*',
             // 'debug/*',
             'mimin/*', // only in dev mode
     ],

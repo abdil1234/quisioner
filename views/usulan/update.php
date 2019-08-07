@@ -8,6 +8,7 @@ use yii\helpers\Html;
 <div class="usulan-update">
 
     <?= $this->render('_form', [
+        'lingkungan' => $lingkungan,
         'model' => $model,
     ]) ?>
 

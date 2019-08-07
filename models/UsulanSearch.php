@@ -19,7 +19,7 @@ class UsulanSearch extends Usulan
     {
         return [
             [['id', 'file_id'], 'integer'],
-            [['nama', 'jenis_kelamin', 'tgl_lahir', 'alamat', 'kritik', 'saran', 'waktu'], 'safe'],
+            [['nama', 'jenis_kelamin', 'tgl_lahir', 'alamat', 'kritik', 'saran', 'waktu', 'kd_lingkungan'], 'safe'],
         ];
     }
 
@@ -60,6 +60,7 @@ class UsulanSearch extends Usulan
             'tgl_lahir' => $this->tgl_lahir,
             'waktu' => $this->waktu,
             'file_id' => $this->file_id,
+            'kd_lingkungan' => $this->kd_lingkungan,
         ]);
 
         $query->andFilterWhere(['like', 'nama', $this->nama])

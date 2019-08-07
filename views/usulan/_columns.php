@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 return [
     [
@@ -25,6 +26,21 @@ return [
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'kritik',
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'kd_lingkungan',
+        'value'=>'lingkungan.lingkungan',
+        'label' => 'Lingkungan',
+        'filter' => $lingkungan
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'file',
+        'format' => 'raw',
+        'value' => function($m){
+            return Html::a("Dokumen", ['/file', 'id' => $m->file_id],['data-pjax' => '0', 'target' => '_blank']);
+        }
     ],
     // [
         // 'class'=>'\kartik\grid\DataColumn',

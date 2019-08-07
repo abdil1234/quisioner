@@ -31,8 +31,9 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu Aplikasi', 'options' => ['class' => 'header']],
-                    ['label' => 'Dashboard', 'icon' => 'file-code-o', 'url' => ['/site']],
+                    ['label' => 'Dashboard', 'icon' => 'home', 'url' => ['/site']],
                     ['label' => 'Usulan', 'icon' => 'file-code-o', 'url' => ['/usulan']],
+                    ['label' => 'Laporan', 'icon' => 'print', 'url' => ['/laporan']],
                 ],
             ]
         ) ?>

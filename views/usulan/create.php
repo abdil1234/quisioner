@@ -10,5 +10,6 @@ use yii\helpers\Html;
 <div class="usulan-create">
     <?= $this->render('_form', [
         'model' => $model,
+        'lingkungan' => $lingkungan,
     ]) ?>
 </div>
